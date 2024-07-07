@@ -1,1 +1,13 @@
 <h1>List Index</h1>
+
+<div class="pt-2" id="lists-list">
+  <% @lists.all.each do |list| %>
+    <ol><%= list.name %></ol>
+    <ol class="ms-3">
+      <%= link_to "List Details", list %>
+    </ol>
+  <% end %>
+    <p>
+      <%= link_to "Create a New List", new_list_path %>
+    </p>
+</div>
