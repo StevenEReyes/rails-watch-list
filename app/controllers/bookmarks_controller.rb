@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(bookmark_params)
     @list = List.find(params[:list_id])
-    @bookmark.list = @list # need to ask what's the deal with this. Permits after writing this line.
+    @bookmark.list = @list # makes connection from bookmark to current list
     if @bookmark.save
       redirect_to list_path(@list)
     else
@@ -17,8 +17,9 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
+    @list = List.find(params[:list_id])
     @bookmark.destroy
-    redirect_to bookmark_path # ask why this works
+    redirect_to bookmark_path
   end
 
   private
