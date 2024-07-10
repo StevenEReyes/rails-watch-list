@@ -1,15 +1,17 @@
 <h1> <%= @list.name %> </h1>
 
+
 <% @list.movies.each do |movie| %>
   <% bookmark = Bookmark.where(movie: movie, list_id: @list).first %>
     <div class="card-product">
       <img src=" <%= movie.poster_url %>" />
       <div class="card-product-infos">
-        <h2><%= movie.title %></h2>
-        <p> <%= movie.overview %></p>
+      <h3><%= movie.title %></h3>
+      <h2> <%= bookmark.comment %> </h2>
+      <p> <%= movie.overview %></p>
       </div>
         <div class="delete-button">
-          <%= link_to "Remove Movie From List", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <%= link_to "🗑️", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
     </div>
 <% end %>
