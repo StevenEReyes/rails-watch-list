@@ -1,13 +1,13 @@
 <h1>List Index</h1>
 
-<div class="pt-2" id="lists-list">
-  <% @lists.all.each do |list| %>
-    <ol><%= list.name %></ol>
-    <ol class="ms-3">
-      <%= link_to "List Details", list %>
-    </ol>
-  <% end %>
+<div class="cards">
+    <% @lists.each do |list| %>
+  <a href="<%= list_path(list) %>" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(list.photo)">
+      <%= list.name %>
+  </a>
+    <% end %>
+</div>
+
     <p>
         <%= link_to "Create a New List", new_list_path %>
     </p>
-</div>

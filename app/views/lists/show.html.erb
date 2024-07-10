@@ -1,24 +1,18 @@
 <h1> <%= @list.name %> </h1>
 
-<div class="bookmark">
-  <% @list.movies.each do |movie| %>
-    <% bookmark = Bookmark.where(movie: movie, list_id: @list).first %>
-    <%# ask about this .first ^^^^^ %>
-    <li>
-      <%= movie.title %>
-    </li>
-    <div class="overview">
-      <%= movie.overview %>
+<% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.where(movie: movie, list_id: @list).first %>
+    <div class="card-product">
+      <img src=" <%= movie.poster_url %>" />
+      <div class="card-product-infos">
+        <h2><%= movie.title %></h2>
+        <p> <%= movie.overview %></p>
+      </div>
+        <div class="delete-button">
+          <%= link_to "Remove Movie From List", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
     </div>
-    <div class="comment">
-      <%= bookmark.comment %>
-    </div>
-    <div class="delete-button">
-      <%= link_to "Remove Movie From List", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <%# why bookmark_path???? %>
-    </div>
-    <% end %>
-</div>
+<% end %>
 
 
 <%= link_to "Create a New Bookmark", new_list_bookmark_path(@list) %>
