@@ -4,8 +4,6 @@
   <% @list.movies.each do |movie| %>
     <% bookmark = Bookmark.where(movie: movie, list_id: @list).first %>
     <%# ask about this .first ^^^^^ %>
-    <li> <%= @list.photo %>
-    </li>
     <li>
       <%= movie.title %>
     </li>
