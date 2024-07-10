@@ -1,21 +1,24 @@
-<h1> <%= @list.name %> </h1>
+<h1 id="list-title"> <%= @list.name %> </h1>
 
 
 <% @list.movies.each do |movie| %>
   <% bookmark = Bookmark.where(movie: movie, list_id: @list).first %>
-    <div class="card-product">
+    <div class="card-product p-0">
       <img src=" <%= movie.poster_url %>" />
-      <div class="card-product-infos">
-      <h3><%= movie.title %></h3>
-      <h2> <%= bookmark.comment %> </h2>
-      <p> <%= movie.overview %></p>
-      </div>
-        <div class="delete-button">
+      <div class="movie-details d-flex">
+        <div class="card-product-infos">
+          <h3><%= movie.title %></h3>
+          <p id="overview"> <%= movie.overview %></p>
+          <p id="comment-display"> user comment: "<%= bookmark.comment %>" </p>
+        </div>
+        <div class="delete-button pe-2 justify-content-center align-items-center">
           <%= link_to "🗑️", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
+      </div>
     </div>
 <% end %>
 
-
-<%= link_to "Create a New Bookmark", new_list_bookmark_path(@list) %>
-<%= link_to "Back to Lists", lists_path %>
+<div class="buttons">
+  <button type="button" class="btn btn-secondary"><%= link_to "Back to Lists", lists_path %></button>
+  <button type="button" class="btn btn-primary"><%= link_to "Add movie to list", new_list_bookmark_path(@list) %></button>
+</div>

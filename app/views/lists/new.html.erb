@@ -4,6 +4,7 @@
     <%= simple_form_for @list do |f| %>
       <%= f.input :name %>
       <%= f.input :photo, as: :file %>
+      <button type="button" class="btn btn-secondary"><%= link_to "Cancel", lists_path %></button>
       <%= f.submit "Create List", class: "btn btn-primary" %>
     <% end %>
   </div>

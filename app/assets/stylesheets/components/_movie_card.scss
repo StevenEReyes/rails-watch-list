@@ -32,7 +32,7 @@
   padding: 16px;
 }
 
-p {
+#overview {
   width: 75%;
   text-align: center;
   justify-content: center;
@@ -40,4 +40,9 @@ p {
 
 h3 {
   text-align: center;
+}
+
+#comment-display {
+  font-style: italic;
+  font-weight: bold;
 }
