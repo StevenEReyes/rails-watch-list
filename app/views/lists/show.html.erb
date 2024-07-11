@@ -7,7 +7,7 @@
       <img src=" <%= movie.poster_url %>" />
       <div class="movie-details d-flex">
         <div class="card-product-infos">
-          <h3><%= movie.title %></h3>
+          <h3><%= movie.title %> <%=  "⭐"*(bookmark.movie.rating.to_i) %></h3>
           <p id="overview"> <%= movie.overview %></p>
           <p id="comment-display"> user comment: "<%= bookmark.comment %>" </p>
         </div>
