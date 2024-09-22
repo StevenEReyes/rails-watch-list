@@ -3,7 +3,9 @@ h1 {
   font-weight: bold;
   span {
     color: white;
+    background-color: black;
     border-radius: 5px;
     padding: 3px;
+    box-shadow: 3px 3px 4px rgba(248, 168, 39, 0.65);
   }
 }
