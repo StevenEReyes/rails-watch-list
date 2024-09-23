@@ -1,11 +1,15 @@
-<h1><span>Create a New List</span></h1>
+<h1 class="mt-2 mb-0" ><span class="py-0 px-2" >Create a New Movie List</span></h1>
 <div class="form-align">
-  <div class="form">
-    <%= simple_form_for @list do |f| %>
-      <%= f.input :name %>
-      <%= f.input :photo, as: :file %>
-      <button type="button" class="btn btn-secondary"><%= link_to "Cancel", lists_path %></button>
-      <%= f.submit "Create List", class: "btn btn-primary" %>
-    <% end %>
+  <div class="form d-flex justify-content-center p-3">
+    <div class="overall-form">
+      <%= simple_form_for @list do |f| %>
+        <%= f.input :name, input_html: { class: 'form-input ' } %>
+        <%= f.input :photo, as: :file, input_html: { class: 'form-input' } %>
+        <div class="d-flex justify-content-center" >
+          <button type="button" class="btn pt-0 pb-0 rounded-3 btn-secondary justify-content-between "><%= link_to "Cancel", lists_path %></button>
+          <%= f.submit "Create new list", class: "btn create-btn pt-0 pb-0 rounded-3" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,8 +1,24 @@
 .form-align {
   display: flex;
   justify-content: center;
-  .form {
-    color: white;
-    width: 50%;
-  }
+}
+
+.form {
+  background-color: rgba(90, 89, 89, 0.611);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.form-input {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.overall-form {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.create-btn {
+  background-color: rgb(255, 255, 255);
 }

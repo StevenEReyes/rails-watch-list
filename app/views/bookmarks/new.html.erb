@@ -2,11 +2,13 @@
 
 <div class="form-align">
   <div class="form">
-    <%= simple_form_for [@list, @bookmark] do |f| %>
-      <%= f.input :comment %>
-      <%= f.association :movie %>
-      <button type="button" class="btn btn-secondary"><%= link_to "Cancel", list_path(@list) %></button>
-      <%= f.submit "Add Movie", class: "btn btn-primary" %>
-    <% end %>
+    <div class="overall-form">
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.input :comment, input_html: { class: 'form-input ' } %>
+        <%= f.association :movie, input_html: { class: 'form-input ' } %>
+        <button type="button" class="btn btn-secondary"><%= link_to "Cancel", list_path(@list) %></button>
+        <%= f.submit "Add Movie", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
