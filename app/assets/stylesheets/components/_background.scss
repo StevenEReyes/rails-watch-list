@@ -1,5 +1,9 @@
 body {
-  background-image: url("theater_bg.jpg");
-  background-repeat: no-repeat;
+  background-image: url("popcorn_pattern_bg.jpg");
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-end;
 }
